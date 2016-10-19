@@ -1,0 +1,56 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "1dec7e8cb7884d63e30c46148a478083",
+    "content-hash": "e658320595284d0dcff015a678aab3a2",
+    "packages": [
+        {
+            "name": "havenondemand/havenondemand",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/HPE-Haven-OnDemand/havenondemand-php.git",
+                "reference": "166b4aae790929de487b6237c0da101c9c960e83"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/HPE-Haven-OnDemand/havenondemand-php/zipball/166b4aae790929de487b6237c0da101c9c960e83",
+                "reference": "166b4aae790929de487b6237c0da101c9c960e83",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "havenondemand": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "This library allows you to quickly and easily make requests to Haven OnDemand's APIs.",
+            "homepage": "https://github.com/HPE-Haven-OnDemand/havenondemand-php",
+            "keywords": [
+                "Haven",
+                "havenondemand",
+                "machine learning",
+                "ondemand"
+            ],
+            "time": "2016-04-07 22:07:45"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
