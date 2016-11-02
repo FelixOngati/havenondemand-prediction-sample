@@ -17,19 +17,20 @@ function requestCompletedWithContent2($response) {
     foreach ($response as $row){
 
         if ($i == 1){
+            //clean and split the returned response by comma, space and new line
             $split_strings = preg_split('/[\ \n\,]+/', $row);
-//            unset($split_strings[4]);
+
+            //remove element number 5 and reindex the array
             array_splice($split_strings,4,1);
-//            array_values($split_strings);
+
+            //traverse the array
             for ($x = 0; $x < sizeof($split_strings); $x=$x+5){
                 echo $split_strings[$x].", ".$split_strings[$x+1].", ".$split_strings[$x+2].", ".$split_strings[$x+3].", ".$split_strings[$x+4];
                 echo "<br/>";
             }
-            //print_r($split_strings);
         }
         $i++;
 
-//        print_r(explode(",",$row));
     }
 
 }
