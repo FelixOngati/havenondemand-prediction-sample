@@ -1,8 +1,13 @@
 <?php
 include 'vendor/havenondemand/havenondemand/lib/hodclient.php';
+// include db connect class
+require_once __DIR__ . '/database/db_connect.php';
 $hodClient = new HODClient('d9c00207-31b3-43f7-83fe-aa025aa67cd7');
 
 $before = microtime(true);
+
+//get connection handle
+$db = new DB_CONNECT();
 
 function requestCompletedWithContent($response) {
     $array = json_decode(json_encode($response), True);
@@ -26,6 +31,31 @@ function requestCompletedWithContent2($response) {
             //traverse the array
             for ($x = 0; $x < sizeof($split_strings); $x=$x+5){
                 echo $split_strings[$x].", ".$split_strings[$x+1].", ".$split_strings[$x+2].", ".$split_strings[$x+3].", ".$split_strings[$x+4];
+                $year = $split_strings[$x];
+                $state = $split_strings[$x+1];
+                $model = $split_strings[$x+2];
+                $color = $split_strings[$x+3];
+                $confidence = $split_strings[$x+4];
+                // mysql inserting a new row
+                $result = mysqli_query("INSERT INTO vehicles(year, state, model, color, confidence) VALUES('$year','$state','$model','$color','$confidence')");
+
+                // check if row inserted or not
+                if ($result) {
+                    // successfully inserted into database
+                    $response["success"] = 1;
+                    $response["message"] = "Row successfully created.";
+
+                    // echoing JSON response
+                    echo json_encode($response);
+                } else {
+                    // failed to insert row
+                    $response ["success"] = 0;
+                    $response["message"] = "Oops! An error occurred.";
+
+                    // echoing JSON response
+                    echo json_encode($response);
+                }
+
                 echo "<br/>";
             }
         }
